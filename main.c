@@ -4,19 +4,6 @@
 #include <stdbool.h> 
 #include <math.h>
 
-/* The sphere */
-typedef struct{
-        vector pos;
-        float  radius;
-    int material;
-}sphere;
-
-/* The ray */
-typedef struct{
-        vector start;
-        vector dir;
-}ray;
-
 /* Color */
 typedef struct{
     float red, green, blue;
@@ -28,13 +15,6 @@ typedef struct{
 	float reflection;
 }material;
 
-/* Camera or Eye */
-typedef struct {
-    vector position;
-    vector distance;
-    float width;
-    float heigt;
-}camera;
 
 //-----------------------------------------------------------------------------
 

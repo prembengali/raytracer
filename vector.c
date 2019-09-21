@@ -31,7 +31,7 @@ vector makeVector(float x, float y, float z) {
  * @param v2 is the second vector
  */
 float dotVector(vector a, vector b) {
-    return v1->x * v2->x + v1->y * v2->y + v1->z * v2->z;
+    return a->x * b->x + a->y * b->y + a->z * b->z;
 }
 
 /**
