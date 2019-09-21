@@ -1,5 +1,5 @@
 /** 
- * 
+ * This is a file for making Sphere entities 
  */
 #include <stdio.h>
 
