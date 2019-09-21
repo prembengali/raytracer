@@ -2,6 +2,9 @@
  * This is a file for making Sphere entities 
  */
 #include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
+#include "vector.c"
 
 /* The sphere */
 typedef struct{
