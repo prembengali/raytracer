@@ -5,10 +5,10 @@
 #include <stdio.h>
 #include <math.h>
 
-/* The vector structure */                                                      
-typedef struct{                                                                 
-      float x,y,z;                                                              
-}vector;                 
+/* The vector structure */
+typedef struct {
+	float x, y, z;
+} vector;
 
 /*                                                                              
  * This method creates 3D vector                
@@ -16,13 +16,12 @@ typedef struct{
  * @param x                                                 
  * @param y 
  * @param z                                               
- */  
+ */
 vector makeVector(float x, float y, float z) {
-    vector v;
-    v.x = x, v.y = y, v.z = z;
-    return v;
+	vector v;
+	v.x = x, v.y = y, v.z = z;
+	return v;
 }
-
 
 /*
  * This method is a dotproduct of two vectors to create a scalar
@@ -31,7 +30,7 @@ vector makeVector(float x, float y, float z) {
  * @param v2 is the second vector
  */
 float dotVector(vector a, vector b) {
-    return a->x * b->x + a->y * b->y + a->z * b->z;
+	return a->x * b->x + a->y * b->y + a->z * b->z;
 }
 
 /**
@@ -39,9 +38,9 @@ float dotVector(vector a, vector b) {
  *
  * @param v1 is the first vector
  * @param v2 is the second vector
- */                
-vector vectorSub(vector a, vector b){
-    return makeVector(a.x - b.x, a.y - b.y, a.z - b.z);
+ */
+vector vectorSub(vector a, vector b) {
+	return makeVector(a.x - b.x, a.y - b.y, a.z - b.z);
 }
 
 /**                                                                             
@@ -49,9 +48,9 @@ vector vectorSub(vector a, vector b){
  *                                                                              
  * @param a is the first vector                                                
  * @param b is the second vector                                               
- */  
+ */
 vector vectorAdd(vector a, vector b) {
-    return makeVector(a.x + b.x, a.y + b.y, a.z + b.z);
+	return makeVector(a.x + b.x, a.y + b.y, a.z + b.z);
 }
 
 /**
@@ -59,7 +58,40 @@ vector vectorAdd(vector a, vector b) {
  *
  * @param v is the vector
  */
-float vec_length(vector v) {
-    return sqrt(SQUARE(v.x) + SQUARE(v.y) + SQUARE(v.z));
+float magnitude(vector v) {
+	return sqrt(SQUARE(v.x) + SQUARE(v.y) + SQUARE(v.z));
+}
+
+vector normalize(vector v) {
+	float mag = magnitude(v);
+	return makeVector(v.x / mag, v.y / mag, v.z / mag);
+}
+
+vector negative(vector v) {
+	return makeVector(-v.x, -v.y, -v.z);
+}
+
+vector crossProduct(vector a, vector b) {
+	vector v;
+	v.x = (a.y * b.z) - (b.y * a.z);
+	v.y = (a.z * b.x) - (b.z * a.x);
+	v.z = (a.x * b.y) - (b.x * a.y);
+	return v;
+}
+
+vector vectorMult(vector v, double scalar) {
+	 return makeVector(v.x * scalar, v.y * scalar, v.z * scalar);
+}
+
+float getVecX(vector v) {
+	return v.x;
+}
+
+float getVecY(vector v) {
+	return v.y;
+}
+
+float getVecZ(vector v) {
+	return v.z;
 }
 
